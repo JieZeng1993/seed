@@ -1,5 +1,6 @@
 package com.jiezeng1993.seed.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class User implements Serializable {
     //是否启用当前用户
     private byte enable =-1 ;
 
+    @JsonManagedReference
     @ManyToMany(targetEntity = Role.class,fetch=FetchType.LAZY)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "uid", referencedColumnName = "id", nullable = false),

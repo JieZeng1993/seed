@@ -1,5 +1,6 @@
 package com.jiezeng1993.seed.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Role {
     private String name;
 
     /**不生成中间表对象，无法设置中间表中的对象*/
+    @JsonBackReference
     @ManyToMany(targetEntity = User.class)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "rid", referencedColumnName = "id", nullable = false),
