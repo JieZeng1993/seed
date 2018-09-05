@@ -31,6 +31,7 @@ public class SeedApplicationTests{
         }
         log.info( roleList );
         log.info( user.toString() );
+
     }
 
 }
